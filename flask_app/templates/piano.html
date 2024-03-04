@@ -1,0 +1,75 @@
+{% extends 'shared/layout.html' %}
+
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='piano/css/piano.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+
+<div class="poem_content">
+    <p>Behold piano great and old, it's master slumbers in far off cold, If you wish to see anew, call out to it - we see you.</p>
+</div>
+<hr class="poem_line">
+
+<div id="piano_background" class="piano_background">
+    <!--short sentence-->
+    <div id="strange_title" class="strange_title">The Great Old One</div>
+
+    <!--piano key-->
+    <div id="KeyA" class="piano_white KeyA"></div>
+    <div id="KeyS" class="piano_white KeyS"></div>
+    <div id="KeyD" class="piano_white KeyD"></div>
+    <div id="KeyF" class="piano_white KeyF"></div>
+    <div id="KeyG" class="piano_white KeyG"></div>
+    <div id="KeyH" class="piano_white KeyH"></div>
+    <div id="KeyJ" class="piano_white KeyJ"></div>
+    <div id="KeyK" class="piano_white KeyK"></div>
+    <div id="KeyL" class="piano_white KeyL"></div>
+    <div id="KeySemicolon"  class="piano_white KeySemicolon"></div>
+
+    <div id="KeyW"  class="piano_black KeyW"></div>
+    <div id="KeyE"  class="piano_black KeyE"></div>
+    <div id="KeyT"  class="piano_black KeyT"></div>
+    <div id="KeyY"  class="piano_black KeyY"></div>
+    <div id="KeyU"  class="piano_black KeyU"></div>
+    <div id="KeyO"  class="piano_black KeyO"></div>
+    <div id="KeyP"  class="piano_black KeyP"></div>
+
+    <!--keyboard letter-->
+    <div class="hover_text_in_white A"></div>
+    <div class="hover_text_in_white S"></div>
+    <div class="hover_text_in_white D"></div>
+    <div class="hover_text_in_white F"></div>
+    <div class="hover_text_in_white G"></div>
+    <div class="hover_text_in_white H"></div>
+    <div class="hover_text_in_white J"></div>
+    <div class="hover_text_in_white K"></div>
+    <div class="hover_text_in_white L"></div>
+    <div class="hover_text_in_white Semicolon"></div>
+
+    <div class="hover_text_in_black W"></div>
+    <div class="hover_text_in_black E"></div>
+    <div class="hover_text_in_black T"></div>
+    <div class="hover_text_in_black Y"></div>
+    <div class="hover_text_in_black U"></div>
+    <div class="hover_text_in_black O"></div>
+    <div class="hover_text_in_black P"></div>
+
+    <!--work for hover the keyboard letter-->
+    <div id="piano_key_area" class="piano_key_area"></div>
+
+    <!--cover the piano-->
+    <div id="great_one" class="great_one"></div>
+
+    <!--awake title-->
+    <div id="awake" class="awake">I have awoken.</div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='piano/js/piano.js') }}" defer></script>
+{% endblock %}

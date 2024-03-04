@@ -1,0 +1,22 @@
+.chat_title{
+    color: #780002;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.enter_message{
+    margin-left: 10%;
+    width: 30%;
+    font-size: 130%;
+}
+
+.leave_chat{
+    margin-top: 3%;
+    margin-left: 10%;
+    font-size: calc(1.3vw + 1.3vh);
+    border-radius: 10px;
+    background-color: #780002;
+    color: #ffffff;
+    width: 18%;
+}

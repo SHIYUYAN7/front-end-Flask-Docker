@@ -1,0 +1,23 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='feedback/css/feedback.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<div class="feedback_container">
+    <div class="thanks_info">Thanks for your feedback - here's what others had to say:</div>
+
+    <div class="feedback_box">
+        {% for id, info in feedback_data.items() %}
+        <div class="comment_info">
+            <div class="comment_name">{{info[0]}} said:&nbsp;</div>
+            <div class="comment">{{info[1]}}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock %}

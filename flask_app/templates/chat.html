@@ -1,0 +1,92 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='chat/css/chat.css') }}">
+<style> 
+#chat {
+  margin: 0 auto;
+  width: 80%;
+  height: 350px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  overflow-y:auto
+}
+</style>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket;
+    var enterMessage = document.getElementById('enter_message');
+    var leaveChat = document.getElementById('leave_chat');
+
+    $(document).ready(function(){
+        socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+        socket.on('connect', function() {
+            socket.emit('joined', {});
+        });
+        
+        socket.on('status', function(data) {     
+            let tag  = document.createElement("p");
+            let text = document.createTextNode(data.msg);
+            let element = document.getElementById("chat");
+            tag.appendChild(text);
+            tag.style.cssText = data.style;
+            element.appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+
+        });        
+
+        // update message
+        socket.on('update_message', function(data) {
+            let tag  = document.createElement("p");
+            let text = document.createTextNode(data.msg);
+            let element = document.getElementById("chat");
+            tag.appendChild(text);
+            tag.style.cssText = data.style;
+            element.appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+        });
+    });
+
+    enterMessage.addEventListener('keydown',function(event){
+        // when enter click
+        if(event.keyCode === 13){
+            var input = $(this).val().trim();
+            if(input !== ''){
+                // emit message to server
+                socket.emit('send_message', {msg: input});
+                // clear input field
+                $(this).val('');
+            }
+        }
+    });
+
+    leaveChat.addEventListener('click',function(event){
+        socket.emit('leave_chat', {msg: 'leave'});
+        window.location.href = "/home";
+    })
+
+</script>
+{% endblock %}
+
+
+{% block maincontent %}
+<p class="chat_title">Chat</p>
+
+<div id='chat' contenteditable>    
+</div>
+
+<p class="email">
+<input id="enter_message" class="enter_message" placeholder="Enter Your Message Here" />
+<br><button id="leave_chat" class="leave_chat">Leave Chat</button>
+</p>
+{% endblock %}

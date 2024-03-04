@@ -1,0 +1,38 @@
+.feedback_container{
+    width: 100%;
+    height: 100%;
+}
+
+.thanks_info{
+    width: 80%;
+    /* vertical center*/
+    margin: 5vh auto 3vh;
+
+    /*text style*/
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+
+    color: #780002;
+}
+
+.feedback_box{
+    width: 80%;
+    /* vertical center*/
+    margin: 0 auto;
+}
+
+.comment_info{
+    display: flex;
+    margin-top: 2vh;
+}
+
+.comment_name{
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.comment{
+    font-size: 250%;
+    font-style: italic;
+}

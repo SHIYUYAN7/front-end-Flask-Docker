@@ -1,0 +1,439 @@
+.piano_background{
+    position: relative;
+    /*level 0*/
+    z-index: 0;
+
+    width: 70vw;
+    height: 50vh;
+    /*vertical center*/
+    margin:0 auto;
+
+    background-color: #25292E;
+
+    /* top two radius angle*/
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+}
+
+.strange_title{
+    position: absolute;
+    /*level 1*/
+    z-index: 1;
+
+    top: 6vh;
+    left: 21.1vw;
+
+    color: #FFFFFF;
+    font-size: 3vw;
+    font-family: papyrus, serif;
+
+    /*animation*/
+    animation: fadeIn 1s;
+
+}
+
+
+/*
+white key
+*/
+.piano_white{
+    position: absolute;
+    /*level 1*/
+    z-index: 1;
+
+    width: 5.5vw;
+    height: 29vh;
+
+    background-color: #D3D4D5;
+
+    /*four angle with radius*/
+    border: solid 0.5vh #000000;
+    border-radius: 0.7em;
+
+    /*animation*/
+    animation: fadeIn 1s;
+}
+.KeyA{
+    top: 20vh;
+    left: 2.5vw;
+}
+.KeyS{
+    top: 20vh;
+    left: 9vw;
+}
+.KeyD{
+    top: 20vh;
+    left: 15.5vw;
+}
+.KeyF{
+    top: 20vh;
+    left: 22vw;
+}
+.KeyG{
+    top: 20vh;
+    left: 28.5vw;
+}
+.KeyH{
+    top: 20vh;
+    left: 35vw;
+}
+.KeyJ{
+    top: 20vh;
+    left: 41.5vw;
+}
+.KeyK{
+    top: 20vh;
+    left: 48vw;
+}
+.KeyL{
+    top: 20vh;
+    left: 54.5vw;
+}
+.KeySemicolon{
+    top: 20vh;
+    left: 61vw;
+}
+
+/*
+black key
+*/
+.piano_black{
+    position: absolute;
+    /*level 2*/
+    z-index: 2;
+
+    width: 2.6vw;
+    height: 18vh;
+
+    background-color: #000000;
+
+    /*four angle with radius*/
+    border: solid 0.5vh #000000;
+    border-radius: 0.7em;
+
+    /*animation*/
+    animation: fadeIn 1s;
+}
+.KeyW{
+    top: 20vh;
+    left: 7.2vw;
+}
+.KeyE{
+    top: 20vh;
+    left: 13.7vw;
+}
+.KeyT{
+    top: 20vh;
+    left: 26.7vw;
+}
+.KeyY{
+    top: 20vh;
+    left: 33.2vw;
+}
+.KeyU{
+    top: 20vh;
+    left: 39.7vw;
+}
+.KeyO{
+    top: 20vh;
+    left: 52.7vw;
+}
+.KeyP{
+    top: 20vh;
+    left: 59.2vw;
+}
+
+
+
+
+/*
+hover text
+*/
+
+.hover_text_in_black{
+    display: none;
+    position: absolute;
+    /*level 3*/
+    z-index: 3;
+
+    width: 2.6vw;
+    height: 2.3vh;
+    border: solid 0.5vh transparent;
+}
+.W{
+    top: 35vh;
+    left: 7.2vw;
+    /*picture*/
+    background: url("../images/W.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.E{
+    top: 35vh;
+    left: 13.7vw;
+    /*picture*/
+    background: url("../images/E.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.T{
+    top: 35vh;
+    left: 26.7vw;
+    /*picture*/
+    background: url("../images/T.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.Y{
+    top: 35vh;
+    left: 33.2vw;
+    /*picture*/
+    background: url("../images/Y.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.U{
+    top: 35vh;
+    left: 39.7vw;
+    /*picture*/
+    background: url("../images/U.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.O{
+    top: 35vh;
+    left: 52.7vw;
+    /*picture*/
+    background: url("../images/O.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.P{
+    top: 35vh;
+    left: 59.2vw;
+    /*picture*/
+    background: url("../images/P.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.hover_text_in_white{
+    display: none;
+    position: absolute;
+
+    /*level 3*/
+    z-index: 3;
+
+    width: 5.5vw;
+    height: 2.3vh;
+
+    border: solid 0.5vh transparent;
+
+}
+
+.A{
+    top: 46vh;
+    left: 2.5vw;
+    /*picture*/
+    background: url("../images/A.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.S{
+    top: 46vh;
+    left: 9vw;
+    /*picture*/
+    background: url("../images/S.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.D{
+    top: 46vh;
+    left: 15.5vw;
+    /*picture*/
+    background: url("../images/D.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.F{
+    top: 46vh;
+    left: 22vw;
+    /*picture*/
+    background: url("../images/F.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.G{
+    top: 46vh;
+    left: 28.5vw;
+    /*picture*/
+    background: url("../images/G.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.H{
+    top: 46vh;
+    left: 35vw;
+    /*picture*/
+    background: url("../images/H.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.J{
+    top: 46vh;
+    left: 41.5vw;
+    /*picture*/
+    background: url("../images/J.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.K{
+    top: 46vh;
+    left: 48vw;
+    /*picture*/
+    background: url("../images/K.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.L{
+    top: 46vh;
+    left: 54.5vw;
+    /*picture*/
+    background: url("../images/L.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+.Semicolon{
+    top: 46vh;
+    left: 61vw;
+    /*picture*/
+    background: url("../images/Semicolon.png") no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+
+/*
+hover area
+*/
+.piano_key_area{
+    position: absolute;
+    /*level 4*/
+    z-index: 4;
+
+    width: 65vw;
+    height: 30vh;
+
+    top: 20vh;
+    left: 2.5vw;
+
+}
+
+.great_one{
+    display: none;
+    position: relative;
+    /*level 5*/
+    z-index: 5;
+
+    width: 70vw;
+    height: 50vh;
+    /*vertical center*/
+    margin:0 auto;
+
+    /*picture*/
+    background: url("../images/texture.jpeg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    /* top two radius angle*/
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+
+    /*animation*/
+    animation: fadeIn 1s;
+}
+
+.awake{
+    display: none;
+    position: absolute;
+    /*level 6*/
+    z-index: 6;
+
+    top: 6vh;
+    left: 26vw;
+
+    color: #FFFFFF;
+    font-size: 3vw;
+    font-family: papyrus, serif;
+
+    /*animation*/
+    animation: fadeIn 1s;
+
+}
+
+/* opacity function work for animation*/
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+/*
+title of piano page
+*/
+.poem_content{
+
+    margin: 0 auto;
+    width: 80vw;
+    height: 12vh;
+    /* father block to be relative*/
+    position: relative;
+}
+
+.poem_content p{
+    width: 95%;
+
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* put the center of the paragraph in the center of the block */
+    margin: 0;
+
+    /*text style*/
+    font-size: 1.5vh;
+    font-style: italic;
+    text-align: center;
+
+}
+
+.poem_line{
+    width: 80vw;
+    margin-bottom: 6vh;
+    border: solid 0.15vh #808080;
+}
+
+
+
+
+
+
+
+

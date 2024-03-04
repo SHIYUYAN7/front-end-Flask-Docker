@@ -1,0 +1,81 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='resume/css/resume.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+
+<hr class="resume_line">
+<!-- For each institution - generate a row -->
+{% for inst_id, inst in resume_data.items() %}
+
+    <!--  institution  -->
+    <div class="inst_part">
+        <div class="inst_title">{{inst['name']}}</div>
+
+        <!--validate the city and state for None value and show different style-->
+        {% if inst['city'] != None and inst['state'] != None %}
+            <div class="inst_location">{{inst['city'] + ", " + inst['state']}}</div>
+        {% elif inst['city'] != None %}
+            <div class="inst_location">{{inst['city']}}</div>
+        {% else %}
+            <div class="inst_location">{{inst['state']}}</div>
+        {% endif %}
+    </div>
+
+    {% if inst['positions'] != {} %}
+        {% for pos_id, pos in inst['positions'].items() %}
+
+            <!--positions-->
+            <div class="pos_part">
+                <div class="pos_title">{{pos['title']}}</div>
+
+                <!--validate the start and end  date for None value and show different style-->
+                {% if pos['start_date'] != None and pos['end_date'] != None %}
+                    <div class="pos_date">{{ pos['start_date'].strftime('%Y-%m-%d') + " - " + pos['end_date'].strftime('%Y-%m-%d')}}</div>
+                {% elif pos['start_date'] != None %}
+                    <div class="pos_date">{{pos['start_date'].strftime('%Y-%m-%d') + " - Present"}}</div>
+                {% endif %}
+            </div>
+            <div class="pos_responsibility">{{pos['responsibilities']}}</div>
+
+            {% if pos['experiences'] != {} %}
+                <ul>
+                {% for exp_id, exp in pos['experiences'].items() %}
+
+                    <!--experiences-->
+                    <li class="exp_li">
+                        <div class="exp_part">
+                            {% if exp['hyperlink'] != None %}
+                                <a href="{{exp['hyperlink']}}"><div class="exp_title">{{exp['name']}}:</div></a>
+                            {% else %}
+                                <div class="exp_title">{{exp['name']}}:</div>
+                            {% endif %}
+                            &nbsp;&nbsp;
+                            <div class="exp_description">{{exp['description']}}</div>
+                        </div>
+
+                        {% if exp['skills'] != {} %}
+
+                            <!--skills-->
+                            <div class="skill_part">Skills used:&nbsp;&nbsp;
+                            {% for skill_id, skill in exp['skills'].items() %}
+                                <div>{{skill['name']}}</div>,&nbsp;
+                            {% endfor %}
+                            </div>
+                        {% endif %}
+                    </li>
+
+                {% endfor %}
+                </ul>
+            {% endif %}
+
+        {% endfor %}
+    {% endif %}
+
+<hr class="resume_line">
+{% endfor %}
+{% endblock %}
+
+

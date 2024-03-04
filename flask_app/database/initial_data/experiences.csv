@@ -1,0 +1,6 @@
+"experience_id","position_id","name","description","hyperlink","start_date","end_date"
+"1","1","Flutter App Development","Spent a week learning Flutter as a tool and started doing mobile page development.","https://mi-diaries.org","2023-01-14","2023-02-07"
+"2","4","Front-end Web Development","Use Angular to make web page and interaction with user dynamically",NULL,"2023-02-10",NULL
+"3","2","Futures Prediction","Featuring machine learning model to implement trading tool",NULL,NULL,NULL
+"4","3","Full Stack Web Development","Visualize and dashboard database datasets in front-end web pages.",NULL,NULL,NULL
+"5","4","Web User Interface and UX","Create the page for App Builder and mobile phone live view by using Figma.",NULL,NULL,NULL

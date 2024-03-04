@@ -1,0 +1,98 @@
+.resume_line{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 90%;
+}
+
+.inst_part{
+    width: 90%;
+    /*horizontal center*/
+    margin: 0 auto;
+
+    /*the default value of the flex-direction property is row*/
+    display: flex;
+    /*the container element split the items along the container with equal space between them*/
+    justify-content: space-between;
+}
+
+.inst_title{
+    color: #780002;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.inst_location{
+    color: #000000;
+    font-size: 100%;
+
+    display: flex;
+    /*vertical center*/
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pos_part{
+    width: 90%;
+    /*horizontal center*/
+    margin: 2vh auto 0;
+
+    /*the default value of the flex-direction property is row*/
+    display: flex;
+    /*the container element split the items along the container with equal space between them*/
+    justify-content: space-between;
+}
+
+.pos_title{
+    color: #000000;
+    font-size: 135%;
+}
+
+.pos_date{
+    color: #000000;
+    font-size: 100%;
+
+    display: flex;
+    /*vertical center*/
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pos_responsibility{
+    color: #000000;
+    font-size: 100%;
+    font-style: italic;
+
+    width: 90%;
+    /*horizontal center*/
+    margin: 0.5vh auto;
+}
+
+.exp_li{
+    width: 90%;
+    /*horizontal center*/
+    margin: 1vh auto 0;
+}
+
+.exp_part{
+    /*the default value of the flex-direction property is row*/
+    display: flex;
+}
+
+.exp_title{
+    color: #000000;
+    font-size: 100%;
+}
+
+.exp_description{
+    color: #000000;
+    font-size: 100%;
+}
+
+.skill_part{
+    /*the default value of the flex-direction property is row*/
+    display: flex;
+    color: #780002;
+    font-size: 70%;
+    font-weight: 600;
+}
+

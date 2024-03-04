@@ -1,0 +1,475 @@
+
+
+/**************************************************************************************************
+header*********************************************************************************************
+**************************************************************************************************/
+
+html,body{
+    /* Eliminate browser-generated margins for pages by default */
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner{
+    /*picture width and height*/
+    width: 100vw;
+    height: 18vh;
+
+    /*remove a white space between header*/
+    display: block;
+
+    /*picture*/
+    background: url("../images/b1.jpg");
+    background-size: cover;
+
+}
+
+
+/**************************************************************************************************
+navigator******************************************************************************************
+**************************************************************************************************/
+
+.navigator{
+    /*navigator size*/
+    width: 100vw;
+    height: 17vh;
+
+    /*vertical center by line height*/
+    line-height: 17vh;
+    /*text color*/
+    color:#FFFFFF;
+    /*background color*/
+    background-color:#000000;
+}
+
+p.nav_title{
+    /*clear the space one the top of item*/
+    margin-top: 0;
+    margin-left: 6vw;
+    margin-bottom: 0;
+    /*one the left of navigator*/
+    float:left;
+    /*text size*/
+    font-size:140%;
+}
+
+
+/*
+full navigator
+*/
+a.full_home, a.full_projects, a.full_resume, a.full_login, a.full_chat{
+    margin-right: 2vw;
+    /*one the right of navigator*/
+    float:right;
+    /*text size*/
+    font-size:140%;
+    /*remove base line*/
+    text-decoration: none;
+    /*text color*/
+    color:#FFFFFF;
+}
+
+img.full_linkin{
+    /*picture width and height*/
+    width: calc(2.4vh + 2.4vw);
+    height: calc(2.4vh + 2.4vw);
+    /*vertical center*/
+    margin-top: calc((17vh - (2.4vh + 2.4vw))/2);
+    margin-right: 6vw;
+    /*one the right of navigator*/
+    float:right;
+}
+
+/*when you mouse over them with opacity 0.5*/
+a.full_home:hover, a.full_projects:hover, a.full_resume:hover,a.full_login:hover, a.full_chat:hover,img.full_linkin:hover
+{
+    opacity: 0.5;
+}
+
+/*
+short navigator
+*/
+
+/*select button style*/
+img.select_button {
+    /* hidden when full*/
+    display: none;
+    /*picture width and height*/
+    width: calc(3.5vh + 3.5vw);
+    height: calc(3.5vh + 3.5vw);
+    /*vertical center*/
+    margin-top: calc((17vh - (3.5vh + 3.5vw))/2);
+    margin-right: 6vw;
+
+    float:right;
+}
+
+/*select content style*/
+.select_content {
+    /* hidden when full*/
+    display: none;
+
+    float: right;
+    line-height: 4.25vh;
+
+}
+
+/* a in select content */
+.select_content a {
+    width: 20vw;
+    /*text color*/
+    color: #FFFFFF;
+    background-color: #000000;
+    /*remove base line*/
+    text-decoration: none;
+    display: block;
+    /*vertical % horizontal center by line height*/
+    text-align: center;
+}
+
+/*change color pf hover content*/
+.select_content a:hover {
+    color: #000000;
+    background-color: #FFFFFF
+}
+/*opacity when hover button*/
+.select_button:hover{
+    opacity: 0.5;
+}
+
+/**************************************************************************************************
+main***********************************************************************************************
+**************************************************************************************************/
+
+/*
+full main
+*/
+
+.box_row{
+    width: 80vw;
+    height: 50vh;
+    max-height: 50vh;
+    max-width: 80vw;
+
+    /*vertical center*/
+    margin: 5vh auto 0;
+}
+
+.image_column{
+    float: left;
+    width: 50%;
+    height: 100%;
+
+    /*picture*/
+    background: url("../images/personal.jpg");
+    background-size: cover;
+    /*show from center of the picture*/
+    background-position: center center;
+}
+
+.text_column
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.text_box{
+    width: 100%;
+    height: 100%;
+
+    /* father block to be relative*/
+    position: relative;
+
+}
+
+.paragraph{
+    width: 95%;
+    height: 95%;
+
+
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* put the center of the paragraph in the center of the block */
+    margin: 0;
+
+    /* text overflow should be handled with the scroll bar.*/
+    overflow-y: auto;
+
+    /*text style*/
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.big_name{
+    font-size: 220%;
+}
+
+
+
+/*
+short main
+*/
+
+.short_main{
+    display: none;
+}
+
+
+.short_personal_image{
+    width: 80vw;
+    height: 30vh;
+    /*vertical center*/
+    margin: 4vh auto 1vh;
+    /*picture*/
+    background: url("../images/personal.jpg") no-repeat;
+    background-size: cover;
+
+    /*show from center of the picture*/
+    background-position: center center;
+}
+
+.short_box{
+    margin: 0 auto;
+    width: 80vw;
+}
+
+.short_paragraph{
+    /* text overflow should be handled with the scroll bar.*/
+    overflow-y: visible;
+
+    /*text style*/
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+
+
+/*
+fun fact part
+*/
+
+.home_line{
+    width: 80vw;
+    margin-top: 6vh;
+    margin-bottom: 3vh;
+    border: solid 0.15vh #808080;
+}
+
+
+.fun_fact_title{
+    margin: 0 auto;
+    width: 80vw;
+    height: 10vh;
+    /* father block to be relative*/
+    position: relative;
+}
+
+.fun_fact_title p{
+
+    width: 95%;
+
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* put the center of the paragraph in the center of the block */
+    margin: 0;
+
+    /*text style*/
+    font-size: 2.4vh;
+    text-align: center;
+
+}
+
+.fun_fact_content{
+    margin: 0 auto;
+    width: 80vw;
+    height: 7vh;
+    /* father block to be relative*/
+    position: relative;
+}
+
+.fun_fact_content p{
+
+    width: 90%;
+
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* put the center of the paragraph in the center of the block */
+    margin: 0;
+
+    /*text style*/
+    font-size: 1.5vh;
+    text-align: center;
+
+}
+
+/**************************************************************************************************
+footer*********************************************************************************************
+**************************************************************************************************/
+.copyright_area{
+    margin-top: 5vh;
+    width: 100vw;
+    height: 7vh;
+    /* father block to be relative*/
+    position: relative;
+}
+
+.copyright_text{
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* put the center of the paragraph in the center of the block */
+    margin: 0;
+
+    /*text style*/
+    font-size: 1.5vh;;
+    text-align: justify;
+    text-justify: auto;
+    color: #808080;
+}
+
+
+/**************************************************************************************************
+unique project page part***************************************************************************
+**************************************************************************************************/
+
+.project_line{
+    width: 80vw;
+    margin-bottom: 6vh;
+    border: solid 0.15vh #808080;
+}
+
+.short_piano_image{
+    width: 80vw;
+    height: 80vw;
+    /*vertical center*/
+    margin: 4vh auto 1vh;
+
+    border: solid 0.2vh #000000;
+
+
+    /*picture*/
+    background: url("../images/piano.jpeg") no-repeat;
+    background-size: contain;
+
+    /*show from center of the picture*/
+    background-position: center center;
+}
+
+.piano_column{
+    float: left;
+    width: 50%;
+    height: 100%;
+
+
+}
+
+.piano_image{
+    width: 100%;
+    height: 100%;
+    border: solid 0.2vh #000000;
+
+    /*picture*/
+    background: url("../images/piano.jpeg");
+    background-size: cover;
+    /*show from center of the picture*/
+    background-position: center center;
+}
+
+.piano_paragraph{
+    width: 95%;
+    height: auto;
+
+
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* put the center of the paragraph in the center of the block */
+    margin: 0;
+    padding-left: 1vw;
+
+    /* text overflow should be handled with the scroll bar.*/
+    overflow-y: auto;
+
+    /*text style*/
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/**************************************************************************************************
+dialog*********************************************************************************************
+**************************************************************************************************/
+
+.feedback_toggle{
+    width: calc(1.5vw + 1.5vh);
+    height: calc(4vw + 4vh);
+
+    background-color: #000000;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    position: absolute;
+    z-index:15;
+    top:50%;
+
+    /*text style*/
+    color: #FFFFFF;
+    writing-mode: vertical-rl; /* set the writing mode to vertical */
+    text-orientation: mixed;
+    user-select: none; /* current are editable mode, disable this function */
+
+    text-align: center;
+    line-height: calc(1.5vw + 1.5vh);
+    font-size: calc(0.6vw + 0.6vh);
+
+}
+
+
+.feedback_dialog{
+    /* hidden first*/
+    display: none;
+
+    width: calc(10vw + 10vh);
+    height: calc(10vw + 10vh);
+    padding: 2%;
+
+    background-color: #000000;
+    border: solid #808080;
+    border-radius: 5%;
+
+    position: fixed;
+    z-index:15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* put the center of the paragraph in the center of the block */
+    overflow: auto;
+
+    /*text style*/
+    color: #FFFFFF;
+    font-size: 100%;
+}
+
+.dialog_input_box{
+    width: 65%;
+}
+
+.dialog_textarea_box{
+    width: 75%;
+}
+
+.dialog_submit{
+    font-size: calc(0.6vw + 0.6vh);
+    font-weight: bold;
+    width: 35%;
+}
