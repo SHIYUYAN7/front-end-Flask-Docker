@@ -33,6 +33,7 @@
             
             <!-- if login in, show logout -->
             {% if user == 'Unknown' %}  
+              <a class="full_login" href="/signup">Signup</a>
               <a class="full_login" href="/login">Login</a>
             {% else %}
               <a class="full_login" href="/logout">Logout</a>
@@ -54,6 +55,7 @@
 
             {% if user == 'Unknown' %}  
               <a class="short_login" href="/login">Login</a>
+              <a class="short_login" href="/signup">Signup</a>
             {% else %}
               <a class="short_logout" href="/logout">Logout</a>
             {% endif %}

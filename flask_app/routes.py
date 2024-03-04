@@ -1,16 +1,17 @@
 # Author: Prof. MM Ghassemi <ghassem3@msu.edu>
 from flask import current_app as app
-from flask import render_template, redirect, request, session, url_for, copy_current_request_context
+from flask import render_template, redirect, request, session, url_for
+from flask import jsonify, copy_current_request_context
 from flask_socketio import SocketIO, emit, join_room, leave_room, close_room, rooms, disconnect
-from .utils.database.database  import database
-from werkzeug.datastructures   import ImmutableMultiDict
+from .utils.database.database import database
+from werkzeug.datastructures import ImmutableMultiDict
+from .utils.blockchain.blockchain import Block, Blockchain
 from pprint import pprint
 import json
 import random
 import functools
 from . import socketio
 db = database()
-
 
 #######################################################################################
 # AUTHENTICATION RELATED
@@ -48,7 +49,19 @@ def processlogin():
 
 	return json.dumps(result)
 
-	
+@app.route('/signup')
+def signup():
+	return render_template('signup.html',user=getUser())
+
+@app.route('/processsignup', methods = ["POST","GET"])
+def processsignup():
+	form_fields = dict((key, request.form.getlist(key)[0]) for key in list(request.form.keys()))
+	result = db.createUser(form_fields['email'],form_fields['password'],form_fields['role'])
+	if result.get('success'):
+		session['email'] = db.reversibleEncrypt('encrypt', form_fields['email']) 
+	return json.dumps(result)
+
+
 #######################################################################################
 # CHATROOM RELATED
 #######################################################################################
@@ -84,6 +97,91 @@ def leave_chat(message):
 	else:
 		emit('update_message', {'msg': getUser() + ' has left the room.', 'style': 'width: 100%;color:grey;text-align: left'}, room='main')
 
+
+
+#######################################################################################
+# MARKETPLACE RELATED
+#######################################################################################
+@app.route('/marketplace')
+@login_required
+def marketplace():
+    return render_template('marketplace.html', user=getUser())
+
+@app.route('/personal')
+def personal():
+    res = db.getUserWalletInfoByEmail(getUser())
+    return render_template('personal.html',user=getUser(),personal=res)
+
+@app.route('/admin')
+def admin():
+    all_transaction, all_blockchain = db.getAdminInfo()
+    print(all_transaction, all_blockchain)
+    return render_template('admin.html',user=getUser(),transactions= all_transaction,blockchain=all_blockchain)
+
+@app.route('/buyer')
+def buyer():
+    res = db.getAllImages(getUser())
+    return render_template('buyer.html',user=getUser() ,images = res)
+
+@app.route('/seller')
+def seller():
+	res = db.getOwnImages(getUser())
+	return render_template('seller.html', user=getUser(),images=res)
+
+@app.route('/processCreateNFT', methods = ["POST","GET"])
+def processCreateNFT():
+	form_fields = dict((key, request.form.getlist(key)[0]) for key in list(request.form.keys()))
+
+	result = db.createImage(getUser(),form_fields['description'],form_fields['token']);
+	return json.dumps(result)
+
+@app.route('/processUploadNFT', methods = ["POST","GET"])
+def processUploadNFT():
+	# description and token are in form_fields
+	form_fields = dict((key, request.form.getlist(key)[0]) for key in list(request.form.keys()))
+	# image they upload
+	file = request.files['image']
+
+	result = db.uploadImage(file, getUser(), form_fields['description'],form_fields['token'])
+	return json.dumps(result)
+
+@app.route('/processEditNFT', methods = ["POST","GET"])
+def processEditNFT():
+	form_fields = dict((key, request.form.getlist(key)[0]) for key in list(request.form.keys()))
+
+	result = db.editImage(getUser(),form_fields['des'],form_fields['token'],form_fields['image_id']);
+	return json.dumps(result)
+
+@app.route('/processBuyNFT', methods = ["POST","GET"])
+def processBuyNFT():
+	# get image id
+	form_fields = dict((key, request.form.getlist(key)[0]) for key in list(request.form.keys()))
+
+	if not db.validTokenEnough(getUser(), form_fields['token']):
+		return json.dumps({'fail':1})
+	
+	user_wallet,blockchain_wallet,last_chain_index,chain, new_transactions = db.getTransactionNeed(getUser(),form_fields['image_id'])
+
+	# create a object to check
+	blockchain = Blockchain(user_wallet, blockchain_wallet, last_chain_index, chain, new_transactions)
+
+	infos = blockchain.mine_transaction()
+
+	result = ""
+	if infos != None:
+		result = db.finishBought(infos, new_transactions)
+
+	# print(user_wallet,blockchain_wallet,last_chain_index,chain,new_transactions)
+	
+	return json.dumps(result)
+
+"""
+@socketio.on('joined', namespace='/chat')
+def joined(message):
+    join_room('main')
+    emit('status', {'msg': getUser() + ' has entered the room.', 'style': 'width: 100%;color:blue;text-align: right'}, room='main')
+
+"""
 #######################################################################################
 # OTHER
 #######################################################################################
@@ -96,6 +194,7 @@ def home():
 	print(db.query('SELECT * FROM users'))
 	x     = random.choice(['I am a crazy fan of Neon Genesis Evangelion!','I love fried pork chops!','I am obsessed with Lego cars!'])
 	return render_template('home.html', user=getUser(), fun_fact = x)
+
 
 @app.route('/projects')
 def projects():
@@ -129,3 +228,4 @@ def add_header(r):
     r.headers["Pragma"] = "no-cache"
     r.headers["Expires"] = "0"
     return r
+

@@ -1,0 +1,75 @@
+{% extends 'shared/layout.html' %}
+
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='login/css/login.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+<br><br>
+<div class="login_title">Signup</div>
+<hr class="login_line">
+<form class="login_form" id="login_form">
+    <!--
+    1. the for attribute with same id of <input> element,
+    clicking on the label will give focus to the associated input element.
+    2. the name attribute is used to give a name to the <input> element when submit
+    -->
+    <div class="login_content">
+        <label for="email">Email</label><br>
+        <input id="login_email" class="login_inputbox" type="email" id="email" name="email"><br><br>
+    
+        <label for="password">Password</label><br>
+        <input id="login_password" class="login_inputbox" id="password" name="password"></input><br><br>
+        
+        <div id="failure_notice" class="failure_notice"></div>
+        <br>
+        <button class="login_submit" type="submit" onclick="checkCredentials()">Submit</button>
+    </div>
+    
+</form>
+
+
+<script>
+function checkCredentials() {
+    event.preventDefault();
+    // package data in a JSON object
+
+    // get email and password input field values from the form
+    var email = document.getElementById("login_email").value;
+    var password = document.getElementById("login_password").value;
+
+    // role selection
+    var select = document.getElementById("role");
+
+    // package data in a JSON object
+    var data_d = {'email': email, 'password': password,'role':'guest'};
+
+    // notice
+    var notice = document.getElementById('failure_notice');
+
+    // SEND DATA TO SERVER VIA jQuery.ajax({})
+    jQuery.ajax({
+        url: "/processsignup",
+        data: data_d,
+        type: "POST",
+        success:function(retruned_data){
+            retruned_data = JSON.parse(retruned_data);
+            if(retruned_data.success === 1){
+                window.location.href = "/home";
+            }
+            else{
+                // update notice
+                notice.style.display = "block";
+                notice.innerText = "Email already existed";
+            }
+        },
+    });
+}
+</script>
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% endblock %}

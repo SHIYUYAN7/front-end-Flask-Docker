@@ -1,0 +1,156 @@
+/**************************************************************************************************
+header*********************************************************************************************
+**************************************************************************************************/
+
+html,body{
+    /* Eliminate browser-generated margins for pages by default */
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner{
+    /*picture width and height*/
+    width: 100vw;
+    height: 18vh;
+
+    /*remove a white space between header*/
+    display: block;
+
+    /*picture*/
+    background: url("../images/eva2.jpg");
+    background-size: cover;
+    background-position: 100% 100%;
+
+}
+
+
+/**************************************************************************************************
+navigator******************************************************************************************
+**************************************************************************************************/
+
+.navigator{
+    /*navigator size*/
+    width: 100vw;
+    height: 17vh;
+
+    /*vertical center by line height*/
+    line-height: 17vh;
+    /*text color*/
+    color:#52d053;
+    /*background color*/
+    background-color:#765898;
+}
+
+.nav_title{
+    /*clear the space one the top of item*/
+    margin-top: 0;
+    margin-left: 6vw;
+    margin-bottom: 0;
+    /*one the left of navigator*/
+    float:left;
+    /*text size*/
+    font-size:140%;
+}
+
+
+/*
+full navigator
+*/
+.full_login{
+    margin-right: 2vw;
+    /*one the right of navigator*/
+    float:right;
+    /*text size*/
+    font-size:140%;
+    /*remove base line*/
+    text-decoration: none;
+    /*text color*/
+    color:#52d053;
+}
+
+/*when you mouse over them with opacity 0.5*/
+.full_login:hover
+{
+    opacity: 0.5;
+}
+
+
+/**************************************************************************************************
+footer*********************************************************************************************
+**************************************************************************************************/
+.copyright_area{
+    margin-top: 5vh;
+    width: 100vw;
+    height: 7vh;
+    /* father block to be relative*/
+    position: relative;
+}
+
+.copyright_text{
+    /* son block to be absolute*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* put the center of the paragraph in the center of the block */
+    margin: 0;
+
+    /*text style*/
+    font-size: 1.5vh;;
+    text-align: justify;
+    text-justify: auto;
+    color: #808080;
+}
+
+
+/**************************************************************************************************
+welcome*********************************************************************************************
+**************************************************************************************************/
+.welcome_content{
+    margin: 5% auto;
+    padding: 3%;
+    width: 80%;
+    background-color: #765898;
+}
+
+.welcome_title{
+    color: #52d053;
+    font-size: 180%;
+}
+
+.welcome_options{
+    color: #ffffff;
+    font-size: 130%;
+    /*remove base line*/
+    text-decoration: none;
+}
+
+.welcome_options:hover{
+    color: #52d053;
+}
+
+
+/**************************************************************************************************
+admin page*********************************************************************************************
+**************************************************************************************************/
+.admin_content{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.admin_table{
+    border-collapse: collapse;
+}
+
+.columns{
+    color: #765898;
+    text-align: left;
+    border: 1px solid #52d053;
+    padding: 6px;
+
+    /* limit the width of columns */
+    word-wrap: break-word;
+    max-width: 60vw;
+}

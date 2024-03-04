@@ -45,8 +45,66 @@
         </div>
     </div>
 </div>
+
+
+<hr class="home_line">
+<!--full main-->
+<div id="full_main">
+    <div class="row box_row">
+        {% if user == 'admin@email.com' %}  
+            <a href="/admin"><div class="column piano_column">
+                <div class="nft_image"></div>
+            </div></a>
+        {% else %}
+            <a href="/marketplace"><div class="column piano_column">
+                <div class="nft_image"></div>
+            </div></a>
+        {% endif %}
+
+
+        <div class="column text_column">
+            <div class="text_box">
+                <p class="piano_paragraph">
+                    <span class="big_name">Non-Fungible Token trading marketplace</span>
+                    <br />
+                    This is my final exam in CSE477. NFT is a digital identifier associated with a digital content (for example an image or a video) that also establishes its ownership. Transactions such as change in ownership of NFT are recorded on a blockchain platform which is basically a distributed database.
+                    {% if user == 'admin@email.com' %}  
+                        <a href="/admin">Click here to see all transactions!</a>
+                    {% else %}
+                        <a href="/marketplace">Click here to see, and play!</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--short main-->
+<div id="short_main" class="short_main">
+    <div class="column short_column">
+        {% if user == 'admin@email.com' %}  
+            <a href="/admin"><div class="short_nft_image"></div></a>
+        {% else %}
+            <a href="/marketplace"><div class="short_nft_image"></div></a>
+        {% endif %}
+        <div class="short_box">
+            <p class="short_paragraph">
+                <span class="big_name">Non-Fungible Token trading marketplace</span>
+                <br />
+                This is my final exam in CSE477. NFT is a digital identifier associated with a digital content (for example an image or a video) that also establishes its ownership. Transactions such as change in ownership of NFT are recorded on a blockchain platform which is basically a distributed database.
+                {% if user == 'admin@email.com' %}  
+                    <a href="/admin">Click here to see all transactions!</a>
+                {% else %}
+                    <a href="/marketplace">Click here to see, and play!</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
 <!-- the fun fact  -->
 <hr class="home_line">
+
+
 <div class="fun_fact_title">
     <p>More coming soon!</p>
 </div>

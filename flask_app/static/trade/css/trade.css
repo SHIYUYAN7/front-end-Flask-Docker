@@ -1,0 +1,145 @@
+.trade_content{
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+    padding: 3%;
+    width: 80vw;
+    background-color: #765898;
+/* 
+    border-left: solid 8px #52d053; */
+}
+
+.trade_title{
+    color: #52d053;
+    font-size: 180%;
+}
+
+.item_box{
+    display: flex;
+    background-color: #ffffff;
+    height: 30vh;
+    margin: 5% 0 auto;
+}
+
+.image_box{
+    display: flex;
+    justify-content: center;  /* horizontal */
+    align-items: center; /* vertical */
+    width: 40%;
+    height: 100%;
+}
+
+.image{
+    border: solid 3px #52d053;
+    max-width: 27vw;
+    max-height: 25vh;
+}
+
+.info_Box{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin-top: 10%;
+}
+
+.price{
+    margin-top: 4%;
+    font-style: italic;
+    font-size: 200%;
+    font-weight: bolder;
+    color: #e6770b;
+}
+
+.button{
+    margin-left: 50%;
+    margin-top: 5%;
+    font-size: 190%;
+    background-color: #765898;
+    color: #ffffff;
+}
+
+.button:hover{
+    color: #e6770b;
+}
+
+/**************************************************************************************************
+seller*********************************************************************************************
+**************************************************************************************************/
+
+.seller_create{
+    display: flex;
+    margin: 5% auto;
+    padding: 3%;
+    width: 60vw;
+    background-color: #765898;
+    justify-content: left;
+}
+
+.create_description,.token,.OR{
+    color: #52d053;
+}
+
+.box2{
+    margin-left: 5%;
+}
+
+.create_nft,.upload_nft{
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 6%;
+}
+
+.upload-content{
+    width: 60%;
+}
+
+.upload_nft{
+    margin-top: 5%;
+}
+
+/**************************************************************************************************
+personal page*********************************************************************************************
+**************************************************************************************************/
+
+.personal_item{
+    margin-top: 2%;
+    color: #ffffff;
+    font-size: 120%;
+}
+
+/**************************************************************************************************
+dialog*********************************************************************************************
+**************************************************************************************************/
+
+.edit_dialog{
+    /* hidden first*/
+    display: none;
+
+    width: calc(10vw + 10vh);
+    height: calc(10vw + 10vh);
+    padding: 2%;
+
+    background-color: #e6770b;
+    border: solid #52d053;
+    border-radius: 5%;
+
+    position: fixed;
+    z-index:15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* put the center of the paragraph in the center of the block */
+    overflow: auto;
+
+    /*text style*/
+    color: #FFFFFF;
+    font-size: 100%;
+}
+
+.dialog_button{
+    background-color: #765898;
+    color: #52d053;
+}

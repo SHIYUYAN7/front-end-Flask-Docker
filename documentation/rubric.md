@@ -1,32 +1,31 @@
-# Rubric 
+﻿
+## Rubric
 
-This assignment is graded on a 100 point scale. The following guide will be used when grading your submission: 
-
+This assignment is graded on a 100 point scale; all individual requirements recieve an "all or nothing" grade. The following guide will be used when grading your submission: 
 
 
 **Specific Requirements:**
 
-* <u> xx/45 points:</u>  Authentication System Requirements 
+* <u> xx/15 points:</u>  The Signup System Requirements were met 
 
-  * In the database utility
-    * <u>xx/5 points</u>:  `createUser()` method met all requirements.
-    * <u>xx/5 points:</u>   `authenticate()` method met all requirements.
-  * In routes.py:
-    * <u>xx/15 points:</u> `/login` route met all requirements. 
-    * <u>xx/20 points:</u>  `/processlogin` route met all requirements. 
+* <u>xx /20 points:</u>  NFT Creation with Editable Details Requirement were met
 
-* <u>xx /45 points:</u>  Chat System Requirements
+* <u>xx/20 points:</u> Successful Transaction (NFT Owner Transfer) Requirements were met
 
-  * <u>xx/5:</u> Room entry requirement met
-  * <u>xx/15:</u> message entry requirement met
-  * <u>xx/10:</u> room departure requirement met
-  * <u>xx/15:</u> Message styling requri
+* <u>xx/20 points:</u> NFT Data Synchronization Requirements were met
 
-  
+* <u>xx/15 points:</u> Displaying NFT Blockchain State Data in Administrator Mode Requirements were met
+
 
 **General Requirements:**
 
-* <u>xx/2.5 points:</u> Does the code adhere to <u>HTML best practices</u> including:
+* <u>xx/5</u>: Does the code adhere to Frontend best practices covered throughout the semester?
+* <u>xx/5</u>: Does the code adhere to Backend best practices covered throughout the semester?
+
+A generic checklist for HTML, CSS and Javascript best practices is given below. 
+
+
+* <u>HTML Checklist:</u> Does the code adhere to <u>HTML best practices</u> including:
 
   * Separates Javascript/CSS code from HTML (no inline styling)
 
@@ -50,7 +49,7 @@ This assignment is graded on a 100 point scale. The following guide will be used
 
     
 
-* <u>xx/5 points:</u> Does the code adhere to <u>CSS best practices</u> including:
+* <u>CSS Checklist:</u> Does the code adhere to <u>CSS best practices</u> including:
 
   * Style is never defined inline; style sheets are contained in separate `.css` documents.
 
@@ -74,7 +73,7 @@ This assignment is graded on a 100 point scale. The following guide will be used
 
     
 
-* <u>xx/2.5 points:</u> Does the code adhere to <u>Javascript best practices</u> including: 
+* <u>Javascript Checklist:</u> Does the code adhere to <u>Javascript best practices</u> including: 
 
   * Uses Function expressions and Function Declarations appropriately; unless the javascript function need to be [hoisted](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting), it should be an expression, not a function.
   * Code is well commented, structured, and easy to follow
@@ -88,12 +87,9 @@ This assignment is graded on a 100 point scale. The following guide will be used
 
 
 
-<hr>
 **Please note that you will receive a 0 on the assignment if any of the following conditions are met:**
 
 
-
-* The assignment requirements were not met
 * Your containerized application does not compile
 * Your application is non-functional
 * Your submission was late

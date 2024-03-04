@@ -1,0 +1,73 @@
+{% extends 'shared/NFTlayout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='trade/css/trade.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='trade/js/seller.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="seller_create">
+    <div class="box">
+        <label class="create_description" for="description">Description</label><br>
+        <textarea id="create_description" name="create_description"></textarea>
+    </div>
+    <div class="box2">
+        <label class="token" for="token">Token</label><br>
+        <input id="token"  name="token"></input>
+    </div>
+    <div class="box2">
+        <div id="create_nft" class="create_nft">Create NFT</div>
+    </div>
+    <div class="box2 OR">OR</div>
+    <div class="box2">
+        <form id="upload-form" class="upload-content" enctype="multipart/form-data">
+            <input id="image_input" type="file" name="image">
+            <div id="upload_nft" class="upload_nft">Upload NFT</div>
+        </form>
+    </div>
+</div>
+
+<div id="trade_content" class="trade_content">
+    <div class="trade_title">Your NFT's</div>
+
+    {% for image in images %}
+        <div id="{{image.image_id}}" class="item_box">
+            <div class="image_box">
+                <img class="image" src="{{ url_for('static', filename='NFTimages/' + image.image_id + '.png') }}" loading="lazy">
+            </div>
+            <div class="info_Box">
+                <div class="description">{{ image.description }}</div>
+                <div class="price">{{ image.token }}</div>
+                <div class="button" onclick="onedit('{{image.image_id}}')">&nbsp;&nbsp;EDIT</div>
+            </div>
+        </div>
+    {% endfor %}
+    
+</div>
+
+<!--dialog-->
+<div id="edit_dialog" class="edit_dialog">
+    <div id="edit_form" enctype="application/x-www-form-urlencoded">
+        <!--
+        1. the for attribute with same id of <input> element,
+        clicking on the label will give focus to the associated input element.
+        2. the name attribute is used to give a name to the <input> element when submit
+        -->
+        <label for="edit_description">NFT Description</label><br>
+        <textarea class="dialog_input_box" type="text" id="edit_description" name="edit_description"></textarea><br><br>
+
+        <label for="edit_token">Token</label><br>
+        <input class="dialog_input_box" type="number" id="edit_token" name="edit_token"><br><br>
+
+        <button id="dialog_submit" class="dialog_button" type="submit">Submit</button>
+        <button id="dialog_cancel" class="dialog_button" type="button">Cancel</button>
+    </div>
+</div>
+
+
+
+{% endblock %}

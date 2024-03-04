@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shiyu's personal page</title>
+  <link rel="stylesheet"    href="{{ url_for('static', filename='NFT/css/NFT.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='main/images/favicon.ico') }}">
+  {% block extracss %}{% endblock %}
+
+  {% block extrajs %}{% endblock %}
+
+</head>
+
+<body>
+    <!--header-->
+    <header>
+      <div class="banner"></div>
+    </header>
+    <!--navigator-->
+    <nav class="navigator">
+        <!--left of the screen-->
+        <p class="nav_title">WELCOME {{user}}</p>
+
+        <!--right of the screen-->
+        <div id="full_nav">
+            <a class="full_login" href="/logout">LOGOUT</a>
+            <a class="full_login" href="/seller">SELL</a>
+            <a class="full_login" href="/buyer">BUY</a>
+            <a class="full_login" href="/personal">PERSONAL</a>
+            <a class="full_login" href="/marketplace">INTRO</a>
+        </div>
+    </nav>
+
+    <!-- The main content  -->
+    <main>
+      {% block maincontent %}{% endblock %}
+    </main>
+
+    <!-- The footer of the file -->
+    <footer>
+        <!-- copyright -->
+        <div class="copyright_area">
+            <div class="copyright_text">© 2023 Shiyu Yan</div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='NFT/js/NFT.js') }}" defer></script>
+
+  
+</body>
+
+</html>

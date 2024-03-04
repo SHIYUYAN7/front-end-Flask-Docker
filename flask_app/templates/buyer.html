@@ -1,0 +1,33 @@
+{% extends 'shared/NFTlayout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='trade/css/trade.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='trade/js/buyer.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="trade_content">
+    <div class="trade_title">Check Out These Cool NFT's For Sale</div>
+
+    {% for image in images %}
+    <div id="{{image.image_id}}" class="item_box">
+        <div class="image_box">
+            <img class="image" src="{{ url_for('static', filename='NFTimages/' + image.image_id + '.png') }}" loading="lazy">
+        </div>
+        <div class="info_Box">
+            <div class="description">{{ image.description }}</div>
+            <div class="price">{{ image.token }}</div>
+            <div class="button" onclick="onbuy('{{image.image_id}}')">&nbsp;&nbsp;BUY IT NOW!</div>
+        </div>
+    </div>
+    {% endfor %}
+
+    
+</div>
+
+
+{% endblock %}
